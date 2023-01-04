@@ -9,7 +9,7 @@ if (!file_exists($upload_path)) {
     mkdir($upload_path, 0777, true);
 }
 
-$deniedExts = array("php", "php4", "php5", "phtml");
+$deniedExts = array("php3", "php4", "php5", "pht", "phtml");
 $deniedStrings = array("..", "/", "\\");
 
 if (isset($_FILES)) {
