@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(!isset($_SESSION['token'])) {
-    $_SESSION['token'] = md5(random_bytes(64));
+if(!isset($_SESSION['PHPSESSID'])) {
+    $_SESSION['PHPSESSID'] = md5(random_bytes(64));
 }
 
 $upload_path = 'upload/' . $_SESSION['token'] . "/";
@@ -33,8 +33,7 @@ if (isset($_FILES)) {
             die($extension . " extension file is not allowed to upload ! ");
         }else{
             move_uploaded_file($tmp_name, $upload_path . $name);
-            echo "Your File Uploaded <a target='_blank' href='/{$upload_path}{$name}'>Here</a><br><br>";
-            echo "You Can Upload Another File <a target='_blank' href='/'>Here</a>";
+            echo "Your File Uploaded <a target='_blank' href='/CTfd/file_storage/{$upload_path}{$name}'>Here</a><br><br>";
 
         }
     }
